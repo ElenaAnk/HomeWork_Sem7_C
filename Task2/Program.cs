@@ -44,7 +44,7 @@ void FindPosition(int[,] inArray)
     int FindCol = Convert.ToInt32(Console.ReadLine()!);
     if (FindRow > inArray.GetLength(0) || FindCol > inArray.GetLength(1))
     {
-        Console.Write("Элемент по заданным индексам несуществует!");
+        Console.Write("Элемент по заданным индексам не существует!");
     }
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
