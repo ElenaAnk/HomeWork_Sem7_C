@@ -21,8 +21,13 @@ double[,] FillArray(int row, int col)
     {
         for (int j = 0; j < col; j++)
         {
-            //result[i,j]= new Random().NextDouble();
-            result[i, j] = new Random().Next(-100, 100) + new Random().NextDouble();
+            //result[i,j]= new Random().NextDouble();// Функция для случайного числа от 0.0 до 0.9 включительно
+            
+            result[i, j] = new Random().Next(-100, 100) + new Random().NextDouble();// Это первый вариант (берем слуйчайное целое число от -100 
+            //до 100 и прибавляем к нему случайное число формата double от 0.0 до 0.9 по функции NextDouble, пример 50+0.8 = 50.8 или -8+0.1=-7.9 и т.д)
+            
+            //result[i, j] = new Random().Next(-100, 100) / 10.0; //Это второй вариант (берем рандомное число от -100 до 100 и делим 
+            //его на число в формате double (обязательно с точкой), тогда получим целое число например 50/10.0 = 5.0 или -9/10.0 = -0.9 и т.д)
         }
     }
     return result;
@@ -34,7 +39,9 @@ void PrintArray(double[,] Matr)
     {
         for (int j = 0; j < Matr.GetLength(1); j++)
         {
-            Console.Write($"{Matr[i, j]:f2} ");
+            Console.Write($"{Matr[i, j]:f1} "); // :f1 - означает сколько символов будет после запятой в числе double.
+            //Console.Write($"{Matr[i, j]} "); вывод для второго варианта // здесь не нужно :f1, так как в функции целое 
+            //число делим на 10, это значит, что после заяптой и так будет только 1 символ.
         }
         Console.WriteLine();
     }
